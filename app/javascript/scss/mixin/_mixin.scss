@@ -88,3 +88,11 @@
     height: $size;
     object-fit: cover;
 }
+
+@mixin click-text($before-color:$twitter-color, $after-color:$base-color) {
+    color: $before-color;
+    &:hover {
+        color: $after-color;
+        text-decoration: underline;
+    }
+}

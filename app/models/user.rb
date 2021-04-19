@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
   has_many :event_joins, dependent: :destroy
+
 end
