@@ -17,12 +17,12 @@
                 </div>
                 <div class="field login__field">
                     <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "login__input js-login-email" %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "login__input js-login-check" %>
                 </div>
 
                 <div class="field login__field">
                     <%= f.label :password %><br />
-                    <%= f.password_field :password, autocomplete: "current-password" ,class: "login__input js-login-password" %>
+                    <%= f.password_field :password, autocomplete: "current-password" ,class: "login__input js-login-check" %>
                 </div>
 
                 <% if devise_mapping.rememberable? %>
