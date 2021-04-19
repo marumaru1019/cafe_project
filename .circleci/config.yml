@@ -53,9 +53,9 @@ jobs:
       - run:
           command: bundle exec rails db:migrate
           working_directory: ~/repo
-      - run:
-          command: bundle exec rails db:seed
-          working_directory: ~/repo
+      # - run:
+      #     command: bundle exec rails db:seed
+      #     working_directory: ~/repo
 
       - run:
           name: yarn Install
