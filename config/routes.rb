@@ -1,28 +1,33 @@
 Rails.application.routes.draw do
+  # トップページ
+  root  'events#top'
 
+  # resource: id付のパスがなし
+  # resources: id付のパスがあり
   resources :events, only: [:show, :index] do
     # topページへのルーティングを追加
     collection do
-      get 'top'
-      get "greeting"
+      get :top
+      get :greeting
     end
-
-    # resourceと短径になっていることに注意
+    # resourceと単体になっていることに注意
     resource :event_joins, only: [:create, :destroy]
   end
-  # get 'event/top', to: 'event#top'
 
-  devise_for :users
+  # devise for controllersでdeviseのcontrollerを適用できるようになる
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
+  # WARN: コントローラ名#アクション名  ✖ devise#アクション名
+  devise_scope :user do
+    get 'users/destroy', to: 'users/sessions#destroy'
+    get 'users/welcome/:redirect', to: 'users/registrations#welcome', as: :new_user_welcome
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root  'events#top'  #この1行を追加
-
   resources :users, only: [:show, :edit, :update]
-
-  get 'hello/index', to: 'hello#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  post 'hello/create', to: 'hello#create'
-
 end
