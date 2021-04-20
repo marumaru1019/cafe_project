@@ -20,11 +20,7 @@
                         <%= @user.university %>
 
                         <!-- beginner or master? -->
-                        <% if @user.grade <= 4 %>
-                            学部<%= @user.grade %>年生
-                        <% elsif @user.grade >4 %>
-                            修士<%= @user.grade-4 %>年生
-                        <% end %>
+                        <%= @user.display_grade %>
 
                     </p>
                     <div class="mypage-info__profile-edit text-center">
