@@ -7,7 +7,7 @@ describe 'ユーザログイン後のテスト' do
   let(:event_3in) { create(:event, time_id: time_table.id, date: Time.zone.today + 1, max_num: 10) }
   let(:event_3out) { create(:event, time_id: time_table.id, date: Time.zone.today + 5, max_num: 10) }
   let(:event_out) { create(:event, time_id: time_table.id, date: Time.zone.today - 3, max_num: 10) }
-  let(:event_max_1) { create(:event, time_id: time_table.id, max_num: 1) }
+  let(:event_max_0) { create(:event, time_id: time_table.id, max_num: 0, date: Time.zone.today + 20) }
 
   before do
     # 開始3日以内, 開始3日以前, 終了済みの3パターンで分類
@@ -101,6 +101,11 @@ describe 'ユーザログイン後のテスト' do
         expect(page).to have_content "キャンセル不可"
       end
 
+      it 'キャンセル不可のときのメッセージが正しく表示される' do
+        click_on '参加する'
+        expect(page).to have_content "既にキャンセル期間が過ぎているイベントです。"
+      end
+
     end
   end
 
@@ -153,4 +158,32 @@ describe 'ユーザログイン後のテスト' do
 
     end
   end
+
+  describe '参加人数上限のテスト' do
+    before do
+      visit event_path(event_max_0)
+    end
+
+    context '参加人数上限のテスト' do
+
+      it 'URLが正しい' do
+        expect(page).to have_current_path('/events/' + event_max_0.id.to_s)
+      end
+
+      it '参加人数上限のラベルが表示される' do
+        expect(page).to have_xpath '//span[contains(text(), "参加不可")]'
+      end
+
+      it '参加人数上限ボタンが表示される' do
+        expect(page).to have_xpath '//a[contains(text(), "参加不可")]'
+      end
+
+      it 'cssを変更して終了済みを押されてもroot_pathに飛ばされる' do
+        click_on '参加不可'
+        expect(page).to have_current_path(root_path)
+      end
+
+    end
+  end
+
 end
