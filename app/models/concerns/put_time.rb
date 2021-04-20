@@ -10,7 +10,7 @@ module PutTime
     def time_part
         {
             today: Time.current.at_beginning_of_day,
-            week:  (Time.current.at_beginning_of_day + 6.day).at_end_of_day,
+            week:  (Time.current.at_beginning_of_day + 6.days).at_end_of_day,
             month: (Time.current.at_beginning_of_day + 1.month).at_end_of_day,
             year: (Time.current.at_beginning_of_day + 1.year).at_end_of_day
         }
@@ -18,7 +18,7 @@ module PutTime
 
     def in_week(item)
         from  = Time.current.at_beginning_of_day
-        to    = (from + 6.day).at_end_of_day
+        to    = (from + 6.days).at_end_of_day
         items = item.where(date: from...to)
         return items
     end

@@ -1,0 +1,27 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_from:
+  - .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'lib/tasks/*'
+    - 'vendor/**/*' # rubocop config/default.yml
+    - 'node_modules/**/*'
+    # - 'spec/**/*'
+    - 'public/**/*'
+  DisplayCopNames: true
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+  EnforcedStyle: explicit

@@ -7,24 +7,23 @@ class Event < ApplicationRecord
     # concernのput_time.rbを呼びだす
     include PutTime
 
-
     def join_by?(user)
         event_joins.where(user_id: user.id).exists?
     end
 
     # event hold within 1 week or finish?
     def hold_day?
-        if self.date-7 < Date.today && self.date > Date.today
+        if self.date-7 < Time.zone.today && self.date > Time.zone.today
             return "week_in"
-        elsif self.date < Date.today
+        elsif self.date < Time.zone.today
             return "finished"
         end
     end
 
     def cancel_able?
-        if self.date-3 >  Date.today
+        if self.date-3 >  Time.zone.today
             return "day_in"
-        elsif self.date-3 <=  Date.today && self.date >= Date.today
+        elsif self.date-3 <=  Time.zone.today && self.date >= Time.zone.today
             return "day_out"
         end
     end

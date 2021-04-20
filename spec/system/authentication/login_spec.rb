@@ -1,0 +1,107 @@
+require 'rails_helper'
+
+describe 'ユーザログイン前のテスト' do
+  let(:user) { create(:user, confirmed_at: 1.hour.ago) }
+  let(:user_not_confirmed) { create(:user) }
+  let(:event) { create(:event) }
+  let(:event_join) { create(:event_join) }
+
+  describe 'ログインテスト' do
+    before do
+      visit new_user_session_path
+    end
+
+    context 'ログイン後のルーティング' do
+      it 'URLが正しい' do
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_current_path(root_path)
+      end
+    end
+
+    context 'ログインのエラー' do
+      it 'emailかパスワードが間違っている' do
+        fill_in 'user[email]', with: user.email + 'miss'
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_content 'アカウントが見つかりません'
+      end
+
+      it 'emailはあっているがパスワードが間違っている' do
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: '11111111'
+        click_button 'ログイン'
+        expect(page).to have_content '間違っています'
+      end
+    end
+  end
+
+  describe 'ユーザ新規登録のテスト' do
+    before do
+      visit new_user_registration_path
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(page).to have_current_path('/users/sign_up')
+      end
+      it 'nameフォームが表示される' do
+        expect(page).to have_field 'user[name]'
+      end
+      it 'emailフォームが表示される' do
+        expect(page).to have_field 'user[email]'
+      end
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'user[password]'
+      end
+      it 'password_confirmationフォームが表示される' do
+        expect(page).to have_field 'user[password_confirmation]'
+      end
+      it 'universityフォームが表示される' do
+        expect(page).to have_field 'user[university]'
+      end
+      it '登録ボタンが表示される' do
+        expect(page).to have_field 'user[grade]'
+      end
+    end
+
+    context '新規登録成功のテスト' do
+      before do
+        fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[email]', with: Faker::Internet.email
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+        fill_in 'user[university]', with: '東北大学'
+        select '1年生', from: 'Grade'
+      end
+
+      it '正しく新規登録される' do
+        expect { click_button '登録' }.to change(User.all, :count).by(1)
+      end
+    end
+
+    context '新規登録失敗のテスト' do
+      before do
+        fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: 'pass'
+        fill_in 'user[password_confirmation]', with: 'missw'
+        fill_in 'user[university]', with: 'マサチューセッツ工科大学'
+        select '1年生', from: 'Grade'
+      end
+
+      it 'エラーメッセージが全てが表示されるか？' do
+        fill_in 'user[password]', with: 'passwor'
+        click_button '登録'
+      end
+
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+        click_button '登録'
+        expect(page).to have_content '一致しません'
+        expect(page).to have_content '6文字以上'
+        expect(page).to have_content '存在します'
+      end
+    end
+  end
+end

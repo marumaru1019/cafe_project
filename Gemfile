@@ -45,6 +45,12 @@ gem "aws-sdk-s3", require: false #追記
 # 環境変数
 gem 'dotenv-rails'
 
+gem "rubocop", require: false
+gem "rubocop-airbnb"
+gem "rubocop-performance", require: false
+gem "rubocop-rails", require: false
+gem "rubocop-rspec"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -80,6 +86,16 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
+group :development, :test do
+  gem "rubocop", require: false
+  gem "rubocop-airbnb"
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec"
+end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
