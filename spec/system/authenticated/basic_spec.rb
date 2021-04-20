@@ -10,7 +10,6 @@ describe 'ユーザログイン後のテスト' do
   let(:event_max_1) { create(:event, time_id: time_table.id, max_num: 1) }
 
   before do
-    # 開始3日以内, 開始3日以前, 終了済みの3パターンで分類
     visit user_session_path
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
