@@ -19,12 +19,12 @@ li {
 }
 
 body {
-    font-family: $font-family-base;
     color: $text-dark;
+    font-family: $font-family-base;
     overflow-x: hidden;
+    position: relative;
     word-break: break-word;
     word-wrap: break-word;
-    position: relative;
 
     @media (max-width: $size-xl - 1) {
         font-size: 140% !important;
@@ -56,9 +56,9 @@ body {
     }
 
     &::after {
+        clear: both;
         content: "";
         display: table;
-        clear: both;
     }
 }
 
@@ -73,35 +73,35 @@ p {
 
 
 h2 {
-    font-size: 40px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1;
-    letter-spacing: normal;
     color: $text-dark;
+    font-size: 40px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
 }
 
 h3,
 .h3 {
-    font-size: 20px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1;
-    letter-spacing: normal;
     color: $text-dark;
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
 }
 
 h4,
 .h4 {
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.13;
-    letter-spacing: normal;
     color: $text-dark;
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1.13;
 }
 
 ul {
@@ -133,9 +133,9 @@ ul {
 }
 
 button {
-    border: none;
-    cursor: pointer;
     background: none;
+    border: 0;
+    cursor: pointer;
 }
 
 img {
@@ -149,27 +149,9 @@ a:active {
     text-decoration: none;
 }
 
-a.text-link {
-    transition: all 0.1s ease-in-out;
-
-    &:hover {
-        color: $secondary-color;
-    }
-}
-
-a.link-blue {
-    color: #0084ff;
-    text-decoration: underline;
-
-    &:hover {
-        color: $secondary-color;
-        text-decoration: underline;
-    }
-}
-
 #map {
-    width: 100%;
     height: 100%;
+    width: 100%;
 }
 
 hr {
@@ -179,8 +161,8 @@ hr {
 // Base class
 
 .no-padding {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 .mrl10 {
@@ -415,8 +397,8 @@ hr {
 }
 
 .pbt10 {
-    padding-top: 10px !important;
     padding-bottom: 10px !important;
+    padding-top: 10px !important;
 }
 
 .pt20 {
@@ -424,28 +406,28 @@ hr {
 }
 
 .pbt20 {
-    padding-top: 20px !important;
     padding-bottom: 20px !important;
+    padding-top: 20px !important;
 }
 
 .pbt25 {
-    padding-top: 25px !important;
     padding-bottom: 25px !important;
+    padding-top: 25px !important;
 }
 
 .pbt40 {
-    padding-top: 40px !important;
     padding-bottom: 40px !important;
+    padding-top: 40px !important;
 }
 
 .pbt60 {
-    padding-top: 60px !important;
     padding-bottom: 60px !important;
+    padding-top: 60px !important;
 }
 
 .pbt100 {
-    padding-top: 100px !important;
     padding-bottom: 100px !important;
+    padding-top: 100px !important;
 }
 
 .pt25 {
@@ -545,8 +527,8 @@ hr {
 }
 
 .mbt100 {
-    margin-top: 100px !important;
     margin-bottom: 100px !important;
+    margin-top: 100px !important;
 }
 
 .br10 {
@@ -677,10 +659,10 @@ hr {
 }
 
 .col-hd-4 {
+    padding-left: 15px;
+    padding-right: 15px;
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
 @media (min-width: 1330px) {
@@ -750,14 +732,14 @@ hr {
 }
 
 .content-center {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .title-text {
-    font-size: 6.666vw;
-    background-image: $title-color;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-image: $title-color;
+    font-size: 6.666vw;
     padding: 50px 0 30px;
 }

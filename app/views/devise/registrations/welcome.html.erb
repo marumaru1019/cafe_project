@@ -1,12 +1,14 @@
 <section class="welcome">
-    <%= notice %>
+    <p class="success-message text-center js-notice">
+        <%= notice %>
+    </p>
     <div class="welcome__wrapper m-auto">
         <div class="welcome__mail text-center">
             <%= image_tag("send_email.png") %>
             <p>
                 <%= @user.email %>
             </p>
-            <p>宛にメールを遅らせていただきました。</p>
+            <p>宛にメールを送らせていただきました。</p>
             <p>届いたメールより認証をお願いします。</p><br>
             <p>なにか不明点などありましたら
                 <%= link_to "こちらよりお問い合わせください。" , Settings.web[:formrun], class: "welcome__contact" %>
