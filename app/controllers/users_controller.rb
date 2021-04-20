@@ -12,10 +12,6 @@ class UsersController < ApplicationController
     user.update(user_params)
     redirect_to user_path(user)
   end
-  def welcome
-    @user = User.first
-    @unchi = "うんち"
-  end
   private
   def user_params
     params.require(:user).permit(:name, :user_image, :grade, :university)
