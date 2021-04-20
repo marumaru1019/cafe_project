@@ -1,5 +1,10 @@
 
 .welcome {
+    &__notice {
+        padding: 20px;
+        background: $footer-color;
+        color: white;
+    }
     &__wrapper {
         display: flex;
         justify-content: center;
@@ -10,6 +15,5 @@
 
     &__contact {
         @include click-text();
-
     }
 }
