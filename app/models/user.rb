@@ -29,4 +29,12 @@ class User < ApplicationRecord
   has_one_attached :user_image
   has_many :event_joins, dependent: :destroy
 
+  def display_grade
+    if grade <= 4
+      '学部' + grade.to_s + '年生'
+    elsif grade > 4
+      '修士' + (grade - 4).to_s + '年生'
+    end
+  end
+
 end
