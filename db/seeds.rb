@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # testのときにseedデータを読み込む
-load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+# load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
 
 AdminUser.create!(email: 'admin_ookado@unti.com', password: '285wylyp1n3yvv40bnlf', password_confirmation: '285wylyp1n3yvv40bnlf') if Rails.env.development?
 AdminUser.create!(email: 'admin_ookado@unti.com', password: '285wylyp1n3yvv40bnlf', password_confirmation: '285wylyp1n3yvv40bnlf') if Rails.env.production?
