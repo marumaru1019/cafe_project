@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'ユーザログイン後のテスト' do
   # 認証を行っていないuserを設定 not confirmed_at
   let(:user) { create(:user) }
-  let(:event) { create(:event) }
+  let(:time_table) { create(:time_table) }
+  let(:event) { create(:event, time_id: time_table.id) }
 
   describe '認証していないユーザーのテスト' do
     context 'リンクの内容を確認: ※logoutは『ユーザログアウトのテスト』でテスト済みになります。' do

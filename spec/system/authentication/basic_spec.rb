@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'ユーザログイン前のテスト' do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, confirmed_at: 1.hour.ago) }
   let(:event) { create(:event) }
   let(:event_join) { create(:event_join) }
 

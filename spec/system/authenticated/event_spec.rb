@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'ユーザログイン後のテスト' do
   let(:user) { create(:user, confirmed_at: 1.hour.ago) }
-  let(:time_table) { TimeTable.first }
+  let(:time_table) { create(:time_table) }
   let(:event) { create(:event, time_id: time_table.id) }
   let(:event_3in) { create(:event, time_id: time_table.id, date: Time.zone.today + 1, max_num: 10) }
   let(:event_3out) { create(:event, time_id: time_table.id, date: Time.zone.today + 5, max_num: 10) }
