@@ -1,10 +1,10 @@
 document.addEventListener("turbolinks:load", function () {
 
-    let noticeText = $(".notice").text().trim();
+    let noticeText = $(".js-notice").text().trim();
 
     // trim : remove blank
     if ( noticeText.length <= 0 ) {
-        $(".notice").css("display", "none");
+        $(".js-notice").css("display", "none");
     }
 
 });
