@@ -16,7 +16,7 @@
       <div class="event-detail__info__join">
         <i class="fas fa-user"></i>
         <%= t("index.join_num", join_num: @event.event_joins.count, max_num: @event.max_num) %>
-        <% if @event.event_joins.count < @event.max_num %>
+        <% if @event.over_participant? %>
           <span class="event-detail__info__join__able">
             <%= t("show.joinable") %>
           </span>
@@ -60,11 +60,19 @@
           <% end %>
         <% else %>
           <% if @event.cancel_able? == "day_in" || @event.cancel_able? == "day_out" %>
-            <div class="event-detail__info__join__btn text-center">
-              <%= link_to event_event_joins_path(@event), class: "join", method: :post do %>
-                <%= t("show.hold") %>
-              <% end %>
-            </div>
+            <% if @event.over_participant? %>
+              <div class="event-detail__info__join__btn text-center">
+                <%= link_to event_event_joins_path(@event), class: "join", method: :post do %>
+                  <%= t("show.hold") %>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="event-detail__info__join__btn text-center">
+                <%= link_to root_path, class: "disabled" do %>
+                  <%= t("show.over_participant") %>
+                <% end %>
+              </div>
+            <% end %>
           <% else %>
             <div class="event-detail__info__join__btn text-center">
               <%= link_to root_path, class: "disabled" do %>
