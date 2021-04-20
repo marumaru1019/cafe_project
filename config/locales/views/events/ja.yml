@@ -20,6 +20,7 @@ ja:
             運営に連絡することでキャンセル費がかからない場合があるのでsample@gmail.comまで連絡ください。
     holded: 終了済み
     hold: 参加する
+    over_participant: 参加不可
     before-login: ログインして参加する
     category:
       name: 店名

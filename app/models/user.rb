@@ -31,9 +31,9 @@ class User < ApplicationRecord
 
   def display_grade
     if grade <= 4
-      return '学部' + grade.to_s + '年生'
+      '学部' + grade.to_s + '年生'
     elsif grade > 4
-      return '修士' + (grade - 4).to_s + '年生'
+      '修士' + (grade - 4).to_s + '年生'
     end
   end
 
