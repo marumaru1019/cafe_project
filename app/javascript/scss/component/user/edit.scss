@@ -71,10 +71,13 @@
         height: 400px;
         top: 50%;
         left: 50%;
-        margin-left: -300px;
+        margin-left: -40%;
         margin-top: -200px;
         z-index: 11;
         display: none;
+        @include max-screen($size-s) {
+            width: 80%;
+        }
 
         form {
             box-shadow: 0px 30px 60px -5px #000;
