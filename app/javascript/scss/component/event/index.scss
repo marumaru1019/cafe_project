@@ -50,6 +50,9 @@
 
                 &__content {
                     padding: 20px 0;
+                    @include max-screen($size-s) {
+                        text-align: center;
+                    }
                 }
 
                 &__week {
