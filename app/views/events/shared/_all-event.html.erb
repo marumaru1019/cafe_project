@@ -2,7 +2,7 @@
     <%= link_to event_path(event.id) do %>
         <div class="event-all__menu__item m-auto">
             <%= image_tag event.image %>
-            <div class="event-all__menu__item__content">
+            <div class="event-all__menu__item__content text-center">
                 <p class="event-all__menu__item__date">
                     <%= t("index.holding", date: event.date.strftime('%m月%d日'), time: event.time_table.time) %>
 

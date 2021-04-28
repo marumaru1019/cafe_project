@@ -52,4 +52,56 @@
 
 .event-info {
     background: $background-color;
+
+    &__description {
+        display: flex;
+        width: 80%;
+        justify-content:space-around;
+        @include max-screen($size-s) {
+            flex-direction: column;
+        }
+
+        &__content {
+            width: 33vw;
+            @include max-screen($size-s) {
+                width: 80%;
+                margin: 30px auto 0;
+            }
+        }
+
+        &__circle {
+            position: relative;
+            display: inline-block;
+            width: 20vw;
+            height: 20vw;
+            border: 10px solid $footer-color;
+            border-radius: 50%;
+            @include max-screen($size-s) {
+                width: 40vw;
+                height: 40vw;
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+
+        &__icon {
+            font-size: 10vw;
+        }
+
+        &__title {
+            font-size: 1.6em;
+            padding: 20px 0;
+        }
+
+        &__text {
+            color: $link-color;
+            font-size: 1.1em;
+            width: 95%;
+        }
+    }
 }

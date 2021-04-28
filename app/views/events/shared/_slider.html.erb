@@ -1,4 +1,4 @@
-<div class="js-events">
+<div class="js-events lick-box type_img arrows">
     <% @events.order(date: :desc).limit(3).each do |event| %>
         <div class="slider">
             <%= link_to event_path(event.id), class: "event-link" do %>

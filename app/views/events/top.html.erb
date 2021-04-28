@@ -38,10 +38,74 @@
     <h3 class="event-info__title text-center title-text">
         <%= t("title.what_is") %>
     </h3>
+    <div class="event-info__description m-auto">
+        <div class="event-info__description__content text-center">
+            <div class="event-info__description__circle">
+                <span><i class="fas fa-user-friends event-info__description__icon"></i></span>
+            </div>
+            <%= t("top.title1_html") %>
+            <p class = "event-info__description__text m-auto">
+                <%= t("top.content1") %>
+            </p>
+        </div>
+        <div class="event-info__description__content text-center">
+            <div class="event-info__description__circle">
+                <span><i class="fas fa-coffee event-info__description__icon"></i></span>
+            </div>
+            <%= t("top.title2_html") %>
+            <p class = "event-info__description__text m-auto">
+                <%= t("top.content2") %>
+            </p>
+        </div>
+        <div class="event-info__description__content text-center">
+            <div class="event-info__description__circle m-auto">
+                <span><i class="fas fa-bed event-info__description__icon"></i></span>
+            </div>
+            <%= t("top.title3_html") %>
+            <p class="event-info__description__text m-auto">
+                <%= t("top.content3") %>
+            </p>
+        </div>
+    </div>
 
     <h3 class="event-info__title text-center title-text">
-        <%= t("title.q_and_a") %>
+        <%= t("title.qa") %>
     </h3>
+    <div class="event-info_qa">
+        <div class="event-info_actab">
+            <input id="event-info_tabfour1" type="checkbox" name="tabs">
+            <label for="event-info_tabfour1">
+                <%= t("top.qa.q1") %>
+            </label>
+            <div class="event-info_actab-content">
+                <p>
+                    <%= t("top.qa.a1") %>
+                </p>
+            </div>
+        </div>
+        <div class="event-info_actab">
+            <input id="event-info_tabfour2" type="checkbox" name="tabs">
+            <label for="event-info_tabfour2">
+                <%= t("top.qa.q2") %>
+            </label>
+            <div class="event-info_actab-content">
+                <p>
+                    <%= t("top.qa.a2_html") %>
+                </p>
+            </div>
+        </div>
+        <div class="event-info_actab">
+            <input id="event-info_tabfour3" type="checkbox" name="tabs">
+            <label for="event-info_tabfour3">
+                <%= t("top.qa.q3") %>
+            </label>
+            <div class="event-info_actab-content">
+                <p>
+                    <%= t("top.qa.a3") %>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <div class="event-info__twitter text-center">
         <h3 class="event-info__title text-center title-text">

@@ -1,0 +1,55 @@
+// slickのdotsを☆にカスタマイズ
+.slide-dots{
+  text-align: center;
+  li{
+    display: inline-block;
+    margin: 0 15px;
+    button{
+      position: relative;
+      text-indent: -9999px;
+      &:before{
+        content: '☆';
+        font-size: 20px;
+        text-indent: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    &.slick-active{
+      button:before{
+        content: '★';
+      }
+    }
+  }
+}
+
+// arrowのカスタマイズ
+.slick-prev,
+.slick-next {
+  font-size: 70px;
+  transition: all 0.1s ease-out;
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.slick-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 180px;
+    z-index: 2;
+}
+
+.slick-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 120px;
+    z-index: 2;
+}

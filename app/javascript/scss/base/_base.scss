@@ -25,14 +25,6 @@ body {
     position: relative;
     word-break: break-word;
     word-wrap: break-word;
-
-    @media (max-width: $size-xl - 1) {
-        font-size: 140% !important;
-    }
-
-    @media (max-width: 1250px) {
-        overflow-x: scroll;
-    }
 }
 
 .main {
