@@ -45,11 +45,15 @@ gem "aws-sdk-s3", require: false #追記
 # 環境変数
 gem 'dotenv-rails'
 
+#　コードチェック
 gem "rubocop", require: false
 gem "rubocop-airbnb"
 gem "rubocop-performance", require: false
 gem "rubocop-rails", require: false
 gem "rubocop-rspec"
+
+# スキーマ可視化
+gem 'annotate'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
