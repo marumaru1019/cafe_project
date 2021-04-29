@@ -2,11 +2,11 @@
 #
 # Table name: event_joins
 #
-#  id                                               :bigint(8)        not null, primary key
-#  event_id(イベントID)                               :integer
-#  user_id(ユーザーID)                               　:integer
-#  created_at                                       :datetime         not null
-#  updated_at                                       :datetime         not null
+#  id         :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  event_id   :integer
+#  user_id    :integer
 #
 class EventJoin < ApplicationRecord
   belongs_to :event
