@@ -5,7 +5,7 @@ ja:
     attributes:
       user:
         name: 名前
-        email: メール
+        email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
         university: 大学
@@ -16,4 +16,5 @@ ja:
           attributes:
             password:
             email:
-              invalid: メールアドレスが正しくありません
+              invalid: が正しくありません
+            password:
