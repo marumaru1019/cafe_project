@@ -41,7 +41,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         fill_in 'user[university]', with: '東北大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
       end
 
       it '正しく新規登録される' do
@@ -57,7 +57,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         fill_in 'user[university]', with: '東北大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
         click_button '登録'
       end
 
@@ -82,7 +82,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'pass'
         fill_in 'user[password_confirmation]', with: 'missw'
         fill_in 'user[university]', with: 'マサチューセッツ工科大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
       end
 
       it 'エラーメッセージが全てが表示されるか？' do
@@ -95,6 +95,43 @@ describe '新規登録のテスト' do
         expect(page).to have_content '一致しません'
         expect(page).to have_content '6文字以上'
         expect(page).to have_content '存在します'
+      end
+    end
+
+    context '新規登録が全て空のテスト' do
+      before do
+        fill_in 'user[name]', with: nil
+        fill_in 'user[email]', with: nil
+        fill_in 'user[password]', with: nil
+        fill_in 'user[password_confirmation]', with: nil
+        fill_in 'user[university]', with: nil
+        select '1年生', from: '学年'
+      end
+
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+        click_button '登録'
+        expect(page).to have_content 'メールアドレスを入力してください'
+        expect(page).to have_content 'パスワードを入力してください'
+        expect(page).to have_content '名前を入力してください'
+        expect(page).to have_content 'メールアドレスが正しくありません'
+        expect(page).to have_content '大学情報を教えて下さい'
+      end
+    end
+
+    context '新規登録のメールアドレスの形式とパスワードが一致しないテスト' do
+      before do
+        fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[email]', with: "dd@dd"
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'passwords'
+        fill_in 'user[university]', with: 'マサチューセッツ工科大学'
+        select '1年生', from: '学年'
+      end
+
+      it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+        click_button '登録'
+        expect(page).to have_content 'パスワード確認とパスワードの入力が一致しません'
+        expect(page).to have_content 'メールアドレスが正しくありません'
       end
     end
   end

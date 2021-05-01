@@ -51,6 +51,9 @@
     &__item {
         animation: fadeInRight .5s ease forwards;
         animation-delay: .35s;
+        @include max-screen($size-xs) {
+            font-size: 40px;
+        }
 
         &:nth-of-type(2) {
         animation-delay: .4s;
@@ -81,6 +84,9 @@
         display: inline-block;
         position: relative;
         height: 100%;
+        @include max-screen($size-s) {
+            height: 60%;
+        }
     }
 
     li {

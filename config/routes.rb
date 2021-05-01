@@ -17,11 +17,15 @@ Rails.application.routes.draw do
   # devise for controllersでdeviseのcontrollerを適用できるようになる
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
   }
 
   # WARN: コントローラ名#アクション名  ✖ devise#アクション名
   devise_scope :user do
+    # TIPS: ユーザー登録しっぱいのリダイレクトのエラーを防ぐ https://github.com/heartcombo/devise/blob/master/app/controllers/devise/registrations_controller.rb
+    get '/users', to: 'devise/registrations#new'
+    get '/users/password', to: 'devise/passwords#new'
     get 'users/destroy', to: 'users/sessions#destroy'
     get 'users/welcome/:redirect', to: 'users/registrations#welcome', as: :new_user_welcome
   end

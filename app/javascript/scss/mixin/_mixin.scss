@@ -1,3 +1,17 @@
+// 　ブレークポイント以上で変更
+@mixin max-screen($break-size) {
+    @media screen and (max-width: $break-size) {
+        @content;
+    }
+}
+
+// ブレークポイント以下で変更
+@mixin min-screen($break-size) {
+    @media screen and (min-width: $break-size) {
+        @content;
+    }
+}
+
 // under-line
 @mixin under-line($color) {
     display: inline-block;

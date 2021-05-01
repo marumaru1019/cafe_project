@@ -31,7 +31,9 @@
                 transition: all 0.3s ease;
                 display: flex;
                 width: 90%;
-
+                @include max-screen($size-s) {
+                    flex-direction: column;
+                }
                 &:hover {
                     box-shadow: 0 0.5rem 1rem gray;
                 }
@@ -48,6 +50,9 @@
 
                 &__content {
                     padding: 20px 0;
+                    @include max-screen($size-s) {
+                        text-align: center;
+                    }
                 }
 
                 &__week {
@@ -67,6 +72,10 @@
             img {
                 @include square-image(300px);
                 margin-right: 20px;
+                @include max-screen($size-s) {
+                    margin: auto;
+                    @include square-image(60vw);
+                }
             }
 
             &-nothing {

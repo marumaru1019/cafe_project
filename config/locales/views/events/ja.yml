@@ -35,13 +35,35 @@ ja:
     welcome: Welcome to Cafe Modern!
     event: Events
     what_is: What is Cafe Modern
-    q_and_a: Q&A
+    qa: Q&A
     twitter: Our Twitter
     greeting: 代表者挨拶
     index: イベント一覧
   user:
     registration: 新規登録
     login: ログイン
+  top:
+    title1_html: |
+                  <p class = "event-info__description__title">学年の垣根を超えて<br>
+                  交流できる</p>
+    title2_html: |
+                  <p class = "event-info__description__title">カフェマスター<br>
+                  になれる</p>
+    title3_html: |
+                  <p class = "event-info__description__title">自分のペースで<br>
+                  参加できる</p>
+    content1: 当サークルでは学部1年生から修士2年生までのすべての学年を対象にしているため、年齢に関係なく幅広い交流関係を築くことが可能です。
+    content2: 当サークルでは厳選されたカフェに行くことができるため、幅広いカフェを知ることができます。デートでも活躍間違いなし！！
+    content3: 当サークルでは一度入会してしまえばノルマ等なく、自分のペースで活動に参加することができます。そのため、忙しい理系の方にもおすすめです！！
+    qa:
+      q1: 人数はどのくらいいますか？また男女比は何対何ですか？
+      a1: サークルの全体の人数は30人程で、活動の参加人数は5〜8人程です！また、男女比としては 2:3 です！
+      q2: 費用はどれくらいかかりますか？
+      a2_html: 毎回の活動では、各自頼んだ物を払う形になっております。初参加の人は飲食代に加え、参加費2000円を頂戴しております！入会費1000円で入会することができ、入会された以降の活動は、飲食代のみの負担となります！<br>※その他の費用（月会費等）は一切かかりません！
+      q3: 飲み会ありますか？
+      a3: 希望者がいれば、飲み会を行います！
+
+
   greeting:
     message_html: |
                   <h3>■ はじめに</h3>

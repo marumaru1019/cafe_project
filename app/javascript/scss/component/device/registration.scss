@@ -87,3 +87,7 @@
     }
 }
 
+// TIPS: バリデーション失敗しいたときにフォームがずれるエラーを修正
+.field_with_errors {
+    display: contents;
+}

@@ -9,6 +9,9 @@
 @import "base/status";
 @import "base/base";
 
+// custom slick
+@import 'import/slick-custom';
+
 // mixin
 @import "mixin/mixin";
 
@@ -18,6 +21,9 @@
 @import "parts/filter-image";
 @import "parts/button";
 @import "parts/success-message";
+@import "parts/qa";
+@import "parts/ham-xs";
+
 
 // each　section
 @import "component/event/top";

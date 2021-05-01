@@ -1,11 +1,11 @@
 # == Schema Information
 #
-# Table name: events
+# Table name: time_tables
 #
-#  id                                              :bigint(8)        not null, primary key
-#  time(イベント時間)                                :text(65535)
-#  created_at                                      :datetime         not null
-#  updated_at                                      :datetime         not null
+#  id         :bigint           not null, primary key
+#  time       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class TimeTable < ApplicationRecord
     # 時間が削除されてもイベントは残す

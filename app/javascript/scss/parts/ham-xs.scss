@@ -1,0 +1,16 @@
+#js-ham-xs {
+    display: none;
+    @include max-screen($size-xs) {
+        display: block;
+        position: fixed;
+        bottom: 5em;
+        right: 5em;
+        background-color: $footer-color;
+        }
+}
+
+#js-ham {
+    @include max-screen($size-xs) {
+        display: none;
+    }
+}
