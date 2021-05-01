@@ -7,3 +7,7 @@ ja:
     event:
       join: 参加予定の活動
       nothing: 参加予定のイベントはありません
+  registration:
+    errors:
+      name: 名前を入力してください
+

@@ -41,7 +41,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         fill_in 'user[university]', with: '東北大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
       end
 
       it '正しく新規登録される' do
@@ -57,7 +57,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         fill_in 'user[university]', with: '東北大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
         click_button '登録'
       end
 
@@ -82,7 +82,7 @@ describe '新規登録のテスト' do
         fill_in 'user[password]', with: 'pass'
         fill_in 'user[password_confirmation]', with: 'missw'
         fill_in 'user[university]', with: 'マサチューセッツ工科大学'
-        select '1年生', from: 'Grade'
+        select '1年生', from: '学年'
       end
 
       it 'エラーメッセージが全てが表示されるか？' do

@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        password: パスワード
+        password_confirmation: パスワード確認
+        university: 大学
+        grade: 学年
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+            email:
+              invalid: メールアドレスが正しくありません
