@@ -29,8 +29,10 @@ gem 'selenium-webdriver'
 gem "factory_bot_rails"
 gem 'faker'
 
-# ユーザー登録
+# 管理者画面
 gem 'activeadmin'
+
+# ユーザー登録
 gem 'devise'
 
 # rails-i18n
