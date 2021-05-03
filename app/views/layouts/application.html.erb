@@ -20,7 +20,7 @@
         <!-- logo -->
         <%= link_to "/" , class: "header__logo content-center", id: "header-logo" do %>
           <%= image_tag 'cafe-logo.png' , class: 'header__logo-img' %>
-          <span>
+          <span class = "header__name">
             <%= Settings.web[:circle_name_beta] %>
           </span>
         <% end %>
@@ -67,9 +67,31 @@
       </nav>
     </div>
     <%= yield %>
+    <div class="loader-wrap">
+      <div class="loader text-center">
+        <i class="fas fa-mug-hot loader__icon"></i>
+        <h1 id = "loading-text">
+          <%= t("loading") %>
+        </h1>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="footer__container  text-center">
+        <div class="footer__logo">
+          <%= image_tag 'cafe-logo.png' , class: 'footer__logo__img' %>
+          <span class="footer__logo__name">
+            <%= Settings.web[:circle_name_beta] %>
+          </span>
+        </div>
+        <div class="footer__share">
+          <h4 class="footer__share__title">
+            <%= t("share.title") %>
+          </h4>
+        </div>
         <small class="footer__circle-name">
           <%= Settings.web.footer[:copyright] %>
         </small>
