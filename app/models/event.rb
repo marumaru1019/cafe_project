@@ -23,6 +23,11 @@ class Event < ApplicationRecord
     has_many :event_joins, dependent: :destroy
     belongs_to :time_table, foreign_key: "time_id"
 
+    scope :top5, -> { order(date: :asc).limit(5) }
+    scope :top30,  -> { order(date: :asc).limit(30) }
+    scope :holded, -> { where("date < ?", Time.current.at_beginning_of_day) }
+    scope :will_hold, -> { where("date >= ?", Time.current.at_beginning_of_day) }
+
     # concernのput_time.rbを呼びだす
     include PutTime
 

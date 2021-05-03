@@ -22,10 +22,11 @@ class EventJoinsController < ApplicationController
     end
 
     def move_to_signed_in
+        # userがサインインしているかチェック
         unless user_signed_in?
             flash[:notice] = "ログインして下さい"
             #サインインしていないユーザーはログインページが表示される
-            redirect_to  '/users/sign_in'
+            redirect_to  new_user_session_path
         end
     end
 
