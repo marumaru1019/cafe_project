@@ -30,7 +30,6 @@ ja:
       adress: 住所
     date: "%{date} %{time}"
     recommend: "%{recommend_menu} (%{recommend_price}円)"
-
   title:
     welcome: Welcome to Cafe Modern!
     event: Events
@@ -62,8 +61,6 @@ ja:
       a2_html: 毎回の活動では、各自頼んだ物を払う形になっております。初参加の人は飲食代に加え、参加費2000円を頂戴しております！入会費1000円で入会することができ、入会された以降の活動は、飲食代のみの負担となります！<br>※その他の費用（月会費等）は一切かかりません！
       q3: 飲み会ありますか？
       a3: 希望者がいれば、飲み会を行います！
-
-
   greeting:
     message_html: |
                   <h3>■ はじめに</h3>

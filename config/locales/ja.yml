@@ -1,4 +1,10 @@
 ja:
+  loading: LOADING...
+  share:
+    title: モダンを皆にシェアする
+    twitter: Twitterでシェア
+    facebook: Facebookでシェア
+    line: LINEでシェア
   # 時間型の変更
   # 呼び出し　　<%= l {time}, format: :{formatsのいずれかの動作} %>
   time:

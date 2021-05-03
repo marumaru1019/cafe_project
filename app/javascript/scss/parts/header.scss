@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .header{
     background-color: $base-color;
     display: flex;
@@ -5,6 +6,11 @@
     height: 100px;
     z-index: 200;
     width: 100%;
+
+    &__name {
+        font-size: 20px;
+        font-family: 'Dancing Script', cursive;
+    }
 
     &__container {
         display: flex;
