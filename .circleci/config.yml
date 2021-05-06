@@ -185,7 +185,7 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           # ECSのタスク定義名
-          family: 'nginx-rails-app'
+          family: 'cafe'
           # ECSのクラスター名かARNのフルパス
           cluster-name: 'cafe-cluster'
           # サービス名
