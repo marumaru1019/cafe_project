@@ -220,4 +220,4 @@ workflows:
           cluster-name: 'cafe-cluster'
           # サービス名
           service-name: 'cafe-alb'
-          container-image-name-updates: "container=cafe-app,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
