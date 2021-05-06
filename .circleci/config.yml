@@ -3,6 +3,8 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.5
   slack: circleci/slack@4.1
+  aws-ecr: circleci/aws-ecr@6.15
+  aws-ecs: circleci/aws-ecs@2.0.0
 
 jobs:
   test_backend:
@@ -139,8 +141,6 @@ jobs:
           event: pass
           template: success_tagged_deploy_1
 
-
-
 workflows:
   version: 2
   test:
@@ -164,11 +164,61 @@ workflows:
           requires:
             - test_backend
 
-  # deploy_aws:
-  #   jobs:
-  #     - deploy:
-  #         # masterブランチへのpushでのみ反応
-  #         filters:
-  #             branches:
-  #                 only:
-  #                 - master
+  # Nginxのデプロイ
+  nginx-deploy:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          #AWS_ECR_ACCOUNT_URL => ${アカウントID}.dkr.ecr.${リージョン}.amazonaws.com
+          account-url: AWS_ECR_ACCOUNT_URL
+          # リージョン
+          region: AWS_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          # ECRにリポジトリがなかったら創るか？
+          create-repo: true
+          # Dockerfleのパス(デフォルトはカレントディレクトリのパス)
+          dockerfile: ./nginx/Dockerfile
+          # ECRのリポジトリ
+          repo: cafe-app-nginx
+          tag: "${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          # ECSのタスク定義名
+          family: 'cafe'
+          # ECSのクラスター名かARNのフルパス
+          cluster-name: 'cafe-cluster'
+          # サービス名
+          service-name: 'cafe-alb'
+          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
+
+  # Railsのデプロイ
+  rails-deploy:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          # ECRにリポジトリがなかったら創るか？
+          create-repo: true
+          dockerfile: ./Dockerfile.prod
+          # ECRのリポジトリ
+          repo: cafe-app
+          tag: "${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          # ECSのタスク定義名
+          family: 'cafe'
+          # ECSのクラスター名かARNのフルパス
+          cluster-name: 'cafe-cluster'
+          # サービス名
+          service-name: 'cafe-alb'
+          container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
