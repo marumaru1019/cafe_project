@@ -164,6 +164,7 @@ workflows:
           requires:
             - test_backend
 
+  # Nginxのデプロイ
   nginx-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
@@ -182,7 +183,7 @@ workflows:
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
-              only: fix/move_credential_to_env/CA-75
+              only: master
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
@@ -210,7 +211,7 @@ workflows:
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
-              only: fix/move_credential_to_env/CA-75
+              only: master
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
