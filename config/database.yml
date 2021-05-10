@@ -97,6 +97,8 @@ test:
 #   host: <%= ENV['DB_HOST'] || 'db' %>
 #   password: <%= ENV['DB_PASSWORD'] || '12345678' %>
 #   url: <%= ENV['DATABASE_URL'] %>
+
+# こっちが本番環境に使うやつ
 production:
   <<: *default
   # ***** 以下を修正 *****
