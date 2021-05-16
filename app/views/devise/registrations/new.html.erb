@@ -13,12 +13,12 @@
 
                 <div class="field registration__field">
                     <%= f.label :name %><br />
-                    <%= f.text_field :name, autofocus: true ,class: "registration__input js-registration-check"%>
+                    <%= f.text_field :name, autofocus: false ,class: "registration__input js-registration-check"%>
                 </div>
 
                 <div class="field registration__field">
                     <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "registration__input js-registration-check" %>
+                    <%= f.email_field :email, autofocus: false, autocomplete: "email",class: "registration__input js-registration-check" %>
                 </div>
 
                 <div class="field registration__field">
@@ -26,17 +26,17 @@
                     <% if @minimum_password_length %>
                     <em>(※<%= @minimum_password_length %> 文字以上)</em>
                     <% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password",class: "registration__input js-registration-check" %>
+                    <%= f.password_field :password, autofocus: false, autocomplete: "new-password",class: "registration__input js-registration-check" %>
                 </div>
 
                 <div class="field registration__field">
                     <%= f.label :password_confirmation %><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "registration__input js-registration-check" %>
+                    <%= f.password_field :password_confirmation, autofocus: false, autocomplete: "new-password",class: "registration__input js-registration-check" %>
                 </div>
 
                 <div class="field registration__field">
                     <%= f.label :university %><br />
-                    <%= f.text_field :university, autofocus: true,class: "registration__input js-registration-check" %>
+                    <%= f.text_field :university, autofocus: false,class: "registration__input js-registration-check" %>
                 </div>
 
                 <div class="field registration__field">

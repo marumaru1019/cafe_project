@@ -81,8 +81,8 @@ Rails.application.configure do
   # default url
   config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
 
-  # 開発環境でlocalhost:8025からメールの送信テストをしたいときに使用する
-  # mail setting
+  # # 開発環境でlocalhost:8025からメールの送信テストをしたいときに使用する
+  # # mail setting
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { address: 'mailhog', port: 1025 }
@@ -99,4 +99,14 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
+  # Gem 'bullet' setting
+  # N+1問題の解決
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+  end
 end
