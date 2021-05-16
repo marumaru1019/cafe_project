@@ -1,21 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <section class="event-detail">
+  <!-- イベント画像を表示している部分 -->
   <div class="event-detail__top text-center">
     <% if @event.image.attached? %>
       <%= image_tag @event.image %>
     <% end %>
+    <% if @event.image_quote? %>
+      <p class = "m-auto event-detail__top__quote">
+        <%= t("show.quote", quote: @event.quote ) %>
+      </p>
+    <% end %>
   </div>
 
+  <!-- イベント名を表示している部分 -->
   <div class="event-detail__info">
     <div class="event-detail__info__container m-auto">
-      <h3 class="event-detail__info__name" id="js-store-name">
+      <h3 class="event-detail__info__name text-center" id="js-store-name">
         <%= @event.name %>
       </h3>
 
-      <div class="event-detail__info__join">
+      <div class="event-detail__info__join text-center">
         <i class="fas fa-user"></i>
-        <%= t("index.join_num", join_num: @event.event_joins.count, max_num: @event.max_num) %>
+        <%= t("index.join_num", join_num: @event.event_joins.size, max_num: @event.max_num) %>
         <% if @event.over_participant? %>
           <span class="event-detail__info__join__able">
             <%= t("show.joinable") %>
