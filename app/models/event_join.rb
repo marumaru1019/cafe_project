@@ -11,4 +11,6 @@
 class EventJoin < ApplicationRecord
   belongs_to :event
   belongs_to :user
+
+  scope :will_join, -> { where(event: {id: Event.will_hold.ids}) }
 end
