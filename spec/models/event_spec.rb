@@ -9,6 +9,7 @@
 #  max_num              :integer
 #  name                 :string
 #  place                :text
+#  quote                :string
 #  recommend_menu       :text
 #  recommend_menu_price :integer
 #  store_url            :string

@@ -9,6 +9,7 @@
 #  max_num              :integer
 #  name                 :string
 #  place                :text
+#  quote                :string
 #  recommend_menu       :text
 #  recommend_menu_price :integer
 #  store_url            :string
@@ -26,7 +27,8 @@ FactoryBot.define do
     place { Faker::Lorem.characters(number: 10) }
     max_num { Faker::Number.within(range: 3..9) }
     comment { Faker::Lorem.characters }
-    store_url { "https://sample/sample.html" }
+    store_url { Faker::Internet.url }
+    quote  { Faker::Internet.url }
     after(:build) do |event|
       # carrierwaveの場合
       # item.images << build(:event)
