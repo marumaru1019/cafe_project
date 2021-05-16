@@ -108,5 +108,7 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.rails_logger = true
+    Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "User", :association => :image_attachment
+    Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "Event", :association => :image_attachment
   end
 end

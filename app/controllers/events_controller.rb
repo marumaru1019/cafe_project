@@ -10,7 +10,7 @@ class EventsController < InheritedResources::Base
   end
 
   def index
-    @events = Event.top30
+    @events = Event.eager_load(:time_table).top30
     # future > past
     @events_after = @events.holded
     @events_before = @events.will_hold
