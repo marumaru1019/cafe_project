@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @event_joins = EventJoin.all.where(user_id: @user.id)
+    @event_joins = EventJoin.eager_load(:user, :event).where(user: {id: @user.id}).will_join
   end
   def edit
     @user = User.find(params[:id])

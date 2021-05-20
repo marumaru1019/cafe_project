@@ -9,6 +9,7 @@ ja:
     after: 開催済み
     join_num: " × %{join_num}/%{max_num} "
   show:
+    quote: '"%{quote}"より画像を引用'
     joinable: ⭐ 参加可能
     joinunable: ✖ 参加不可
     comment: 運営からのコメント

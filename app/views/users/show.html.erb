@@ -32,7 +32,7 @@
                     </h3>
 
                     <!-- user join any event? -->
-                    <% if @event_joins.count ==0 %>
+                    <% if @event_joins.size == 0 %>
                         <p class = "mypage-info__event-nothing text-center">
                             <%= t("mypage.event.nothing") %>
                         </p>

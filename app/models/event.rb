@@ -9,6 +9,7 @@
 #  max_num              :integer
 #  name                 :string
 #  place                :text
+#  quote                :string
 #  recommend_menu       :text
 #  recommend_menu_price :integer
 #  store_url            :string
@@ -53,6 +54,11 @@ class Event < ApplicationRecord
     end
 
     def over_participant?
-        event_joins.count < max_num
+        event_joins.size < max_num
+    end
+
+    def image_quote?
+        return false if quote.blank?
+        true
     end
 end
