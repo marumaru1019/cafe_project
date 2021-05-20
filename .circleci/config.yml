@@ -83,11 +83,6 @@ jobs:
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
           working_directory: ~/repo
 
-      - run:
-          name: rails format test
-          command: bundle exec rubocop
-          working_directory: ~/repo
-
       # collect reports
       - store_test_results:
           path: /tmp/test-results
