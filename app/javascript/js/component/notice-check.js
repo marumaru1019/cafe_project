@@ -6,5 +6,4 @@ document.addEventListener("turbolinks:load", function () {
     if ( noticeText.length <= 0 ) {
         $(".js-notice").css("display", "none");
     }
-
 });

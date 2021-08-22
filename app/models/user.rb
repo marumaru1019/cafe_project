@@ -33,6 +33,7 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
   has_many :event_joins, dependent: :destroy
+  has_many :user_requests, dependent: :destroy
 
   # TIPS: 単数のvalidateの場合は自分で作成したメソッドを使用できる
   validates :name, presence: true

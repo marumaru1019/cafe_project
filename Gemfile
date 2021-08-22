@@ -77,6 +77,8 @@ group :development do
   gem 'bullet'
   # メールが送られてくる設定
   gem "letter_opener"
+  # デバッグ
+  gem 'pry-rails'
 end
 
 group :test do

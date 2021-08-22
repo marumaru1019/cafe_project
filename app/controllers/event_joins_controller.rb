@@ -18,16 +18,8 @@ class EventJoinsController < ApplicationController
     private
 
     def event_join_params
-        params.require(:event).permit(:event_id, :user_id)
+        params
+        .require(:event_join)
+        .permit(:event_id, :user_id)
     end
-
-    def move_to_signed_in
-        # userがサインインしているかチェック
-        unless user_signed_in?
-            flash[:notice] = "ログインして下さい"
-            #サインインしていないユーザーはログインページが表示される
-            redirect_to  new_user_session_path
-        end
-    end
-
 end

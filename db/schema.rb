@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_112922) do
+ActiveRecord::Schema.define(version: 2021_05_20_174040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_05_16_112922) do
     t.date "date"
     t.text "adress"
     t.string "quote"
+    t.string "image"
   end
 
   create_table "hellos", force: :cascade do |t|
@@ -103,6 +104,23 @@ ActiveRecord::Schema.define(version: 2021_05_16_112922) do
     t.text "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_request_tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "user_request_tag_id"
+    t.text "text", null: false
+    t.boolean "confirm", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_requests_on_user_id"
+    t.index ["user_request_tag_id"], name: "index_user_requests_on_user_request_tag_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,4 +146,6 @@ ActiveRecord::Schema.define(version: 2021_05_16_112922) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_requests", "user_request_tags"
+  add_foreign_key "user_requests", "users"
 end

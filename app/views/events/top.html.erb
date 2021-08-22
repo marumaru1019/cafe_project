@@ -1,14 +1,14 @@
 <!-- topページ -->
 <div class= "event-top">
-    <p class= "success-message text-center js-notice">
-        <%= notice %>
-    </p>
+    <%= render 'shared/notice' %>
     <div class="event-top__img">
         <%= image_tag 'top-image.jpg' %>
     </div>
     <div class="event-top__content text-center">
         <h1 class = "event-top__title" id = "js-typing">
             <%= t("title.welcome") %>
+            インデックスなし
+            13.231.******
         </h1>
         <div class="event-top__btn__wrapper">
             <% if not current_user %>

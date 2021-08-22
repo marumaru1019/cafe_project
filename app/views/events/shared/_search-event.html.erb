@@ -1,9 +1,7 @@
-<% @events_after.each do |event| %>
+<% @events.each do |event| %>
     <%= link_to event_path(event.id) do %>
         <div class="event-all__menu__item m-auto">
-            <% if event.image? %>
-                <%= image_tag event.image %>
-            <% end %>
+            <%= image_tag event.image %>
             <div class="event-all__menu__item__content">
                 <p class="event-all__menu__item__date">
                     <%= t("index.holding", date: event.date.strftime('%m月%d日'), time: event.time_table.time) %>
@@ -27,6 +25,10 @@
                 </p>
                 <p class="event-all__menu__item__recommend">
                     <%= t("index.recommend_menu", menu: event.recommend_menu) %>
+                </p>
+                <p class="event-all__menu__item__join">
+                    <i class="fas fa-user"></i>
+                    <%= t("index.join_num", join_num: event.event_joins.size, max_num: event.max_num) %>
                 </p>
             </div>
         </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_requests/create'
   # トップページ
   root  'events#top'
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get :top
       get :greeting
+      get :search_by_place
     end
     # resourceと単体になっていることに注意
     resource :event_joins, only: [:create, :destroy]
@@ -34,4 +36,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :users, only: [:show, :edit, :update]
+  resources :user_requests, only: [:new, :create] do
+    collection do
+      get :thanks
+    end
+  end
 end

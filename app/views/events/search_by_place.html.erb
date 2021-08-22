@@ -1,0 +1,43 @@
+<section class="event-all">
+
+  <div class="filter-top">
+    <%= image_tag("afternoon.jpg") %>
+      <p class="event-all__text text-center">
+        <%= t("title.index") %>
+      </p>
+  </div>
+
+
+  <div class="search text-center">
+    <%= form_tag(search_by_place_events_path,:method=> 'get') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索' , :name=> nil %>
+    <% end %>
+  </div>
+  <p class="text-center">
+    <%= params[:search] %> の検索結果
+  </p>
+  <div id="js-event-aft">
+    <%= render 'events/shared/search-event' %>
+  </div>
+
+
+  <!-- <div class="event-all__menu m-auto">
+    <h3 class="event-info__title text-center title-text">
+      <%= t("title.index") %>
+        <%= @from %>
+    </h3>
+
+    <div class="event-all__select text-center">
+      <span class="event-all__select-before" id="js-select-before">
+        <%= t("index.before") %>
+      </span>
+      <span class="event-all__select-after" id="js-select-after">
+        <%= t("index.after") %>
+      </span>
+    </div>
+  </div> -->
+
+
+
+</section>

@@ -79,26 +79,26 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # default url
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 80 }
 
   # # 開発環境でlocalhost:8025からメールの送信テストをしたいときに使用する
   # # mail setting
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = { address: 'mailhog', port: 1025 }
-
-  # 実際に贈りたいときに使う
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    port:                 587,
-    address:              'smtp.gmail.com',
-    domain:               ENV["MAIL_DOMAIN"],
-    user_name:            ENV["MAIL"],
-    password:             ENV["MAIL_PASS"],
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.smtp_settings = { address: 'mailhog', port: 1025 }
+
+  # 実際に贈りたいときに使う
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   port:                 587,
+  #   address:              'smtp.gmail.com',
+  #   domain:               ENV["MAIL_DOMAIN"],
+  #   user_name:            ENV["MAIL"],
+  #   password:             ENV["MAIL_PASS"],
+  #   authentication:       'plain',
+  #   enable_starttls_auto: true
+  # }
 
   # Gem 'bullet' setting
   # N+1問題の解決

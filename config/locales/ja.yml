@@ -1,5 +1,6 @@
 ja:
   loading: LOADING...
+  must_login: ログインして下さい
   share:
     title: モダンを皆にシェアする
     twitter: Twitterでシェア

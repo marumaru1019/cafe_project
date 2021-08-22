@@ -19,6 +19,13 @@
 
     </div>
 
+    <div class="search text-center">
+    <%= form_tag(search_by_place_events_path,:method=> 'get') do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag '検索' , :name=> nil %>
+    <% end %>
+    </div>
+
     <div class="event-all__menu m-auto">
         <h3 class="event-info__title text-center title-text">
             <%= t("title.index") %>

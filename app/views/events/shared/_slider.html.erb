@@ -2,7 +2,7 @@
     <% @events.order(date: :desc).limit(3).each do |event| %>
         <div class="slider">
             <%= link_to event_path(event.id), class: "event-link" do %>
-                <%= image_tag event.image %>
+                <%= image_tag event.image if event.image? %>
             <% end %>
         </div>
     <% end %>

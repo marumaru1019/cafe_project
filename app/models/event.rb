@@ -6,6 +6,7 @@
 #  adress               :text
 #  comment              :text
 #  date                 :date
+#  image                :string
 #  max_num              :integer
 #  name                 :string
 #  place                :text
@@ -60,5 +61,9 @@ class Event < ApplicationRecord
     def image_quote?
         return false if quote.blank?
         true
+    end
+
+    def self.search_by_place(place)
+        Event.where(place: "#{place}")
     end
 end

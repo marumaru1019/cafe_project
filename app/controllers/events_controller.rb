@@ -1,5 +1,10 @@
 class EventsController < InheritedResources::Base
 
+  # before_action :authenticate
+
+  # REALM = 'SecretZone'.freeze
+  # USERS = { 'user1' => Digest::MD5.hexdigest(['user1', REALM, 'password'].join(':'))}.freeze
+
   include PutTime
 
   def top
@@ -16,10 +21,26 @@ class EventsController < InheritedResources::Base
     @events_before = @events.will_hold
   end
 
-  private
-
-  def event_params
-    params.require(:event).permit(:name, :date, :time_id, :recommend_menu, :recommend_menu_price, :place, :max_num, :comment, :store_url, :image)
+  def show
+    @event = Event.find_by(id: params[:id])
   end
 
+  def search_by_place
+    @events=Event.search_by_place(params[:search])
+  end
+
+
+  private
+
+  # def authenticate
+  #   authenticate_or_request_with_http_digest(REALM) do |username|
+  #     USERS[username]
+  #   end
+  # end
+
+  def event_params
+    params
+    .require(:event)
+    .permit(:name, :date, :time_id, :recommend_menu, :recommend_menu_price, :place, :max_num, :comment, :store_url, :image)
+  end
 end

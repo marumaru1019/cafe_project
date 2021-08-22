@@ -12,9 +12,13 @@ class UsersController < ApplicationController
     user.update(user_params)
     redirect_to user_path(user)
   end
+
   private
+
   def user_params
-    params.require(:user).permit(:name, :user_image, :grade, :university)
+    params
+    .require(:user)
+    .permit(:name, :user_image, :grade, :university)
   end
 end
 

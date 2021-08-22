@@ -45,7 +45,7 @@ services:
       dockerfile: ./nginx/Dockerfile
     ports:
       - '80:80'
-      # webとnginxの療法と共有する必要がある。
+      # webとnginxの両方と共有する必要がある。
     volumes:
       - sockets:/app/tmp/sockets
       - public-data:/app/public

@@ -6,6 +6,7 @@
 #  adress               :text
 #  comment              :text
 #  date                 :date
+#  image                :string
 #  max_num              :integer
 #  name                 :string
 #  place                :text

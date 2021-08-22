@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :university, :grade])
     end
+
+    def move_to_signed_in
+        # userがサインインしているかチェック
+        unless user_signed_in?
+            flash[:notice] = t("must_login")
+            #サインインしていないユーザーはログインページが表示される
+            redirect_to  new_user_session_path
+        end
+    end
 end
