@@ -1,0 +1,5 @@
+ja:
+  user_requests:
+    create:
+      alert: 入力ミスがあります。
+      success: 運営にあなたの意見を送らせていただきました！
